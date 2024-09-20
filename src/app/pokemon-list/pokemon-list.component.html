@@ -3,6 +3,7 @@
     <nb-list>
         <nb-list-item *ngFor="let pokemon of pokemonInfo; let i = index"
         (mouseover)="hovered($event)" (mouseleave)="mouseLeave($event)" 
+        (click)="select($event)"
         [ngStyle]="getTypeColor(pokemon)">
             <span><img src={{pokemon.sprites.front_default}}></span>
             <span><b>{{pokemon.name.toUpperCase()}}</b></span>

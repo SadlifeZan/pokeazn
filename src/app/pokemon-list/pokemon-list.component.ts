@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service';
 import { Observable, Subscription } from 'rxjs';
 
@@ -9,6 +9,7 @@ import { Observable, Subscription } from 'rxjs';
 })
 export class PokemonListComponent implements OnInit, OnDestroy {
 
+  @Output() selectedPokemon: EventEmitter<any> = new EventEmitter();
   pokemons: any = [];
   pokemonInfo: any = [];
   hover = false;       
@@ -80,6 +81,14 @@ export class PokemonListComponent implements OnInit, OnDestroy {
       hoverColor = "var(--" + `${pokemon.types[0].type.name}` + ")";
       event.target.style.setProperty("background-color", hoverColor);
     }
+  }
+
+  select(event: any) {
+    const target = event.target.children[1].children[0].innerHTML.toLowerCase();
+    const pokemon = this.pokemonInfo.find( (pokemon: any) => pokemon.name == target);
+
+    console.log(pokemon);
+    this.selectedPokemon.emit(pokemon);
   }
   
     

@@ -3,11 +3,11 @@
   <nb-layout-header fixed>PokeAzn</nb-layout-header>
 
   <nb-sidebar>
-    <app-pokemon-list></app-pokemon-list>
+    <app-pokemon-list (selectedPokemon)="selectPokemon($event)"></app-pokemon-list>
   </nb-sidebar>
 
   <nb-layout-column>
-    Pokemon
+      <app-pokemon-view [selectedPokemon]="selectedPokemon"></app-pokemon-view>
   </nb-layout-column>
 </nb-layout>
 
