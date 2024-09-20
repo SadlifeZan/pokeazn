@@ -1,12 +1,6 @@
 <div *ngIf="selectedPokemon" class="container" [ngStyle]="getTypePokemon()">
     <div #pokemon>
-        <div>
-            <img #front src={{selectedPokemon.sprites.front_default}}>
-            <img #back src={{selectedPokemon.sprites.back_default}}>
-        </div>
-
-        <div>
-            <h3>{{selectedPokemon.name.toUpperCase()}}</h3>
-        </div>
+        <img #front src={{getSprite()}}>
+        <h1>{{selectedPokemon.name.toUpperCase()}}</h1>
     </div>
 </div>

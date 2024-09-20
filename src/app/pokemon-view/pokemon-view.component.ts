@@ -1,4 +1,4 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-pokemon-view',
@@ -6,6 +6,7 @@ import { Component, Input} from '@angular/core';
   styleUrl: './pokemon-view.component.scss'
 })
 export class PokemonViewComponent {
+
 
   @Input() selectedPokemon: any;
 
@@ -17,5 +18,9 @@ export class PokemonViewComponent {
     } else {
       return {"background-color": "var(--" + `${this.selectedPokemon.types[0].type.name}` + ")"};
     }
+  }
+
+  getSprite(): any {
+    return this.selectedPokemon.sprites.other['official-artwork'].front_default;
   }
 }

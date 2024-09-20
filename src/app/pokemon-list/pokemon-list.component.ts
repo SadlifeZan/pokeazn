@@ -54,7 +54,7 @@ export class PokemonListComponent implements OnInit, OnDestroy {
   }
 
   hovered(event: any) {
-    const target = event.target.children[1].children[0].innerHTML.toLowerCase();
+    const target = event.target.children[1].innerHTML.toLowerCase();
     const pokemon = this.pokemonInfo.find( (pokemon: any) => pokemon.name == target);
 
     var hoverColor = null;
@@ -69,7 +69,7 @@ export class PokemonListComponent implements OnInit, OnDestroy {
   }
 
   mouseLeave(event: any) {
-    const target = event.target.children[1].children[0].innerHTML.toLowerCase();
+    const target = event.target.children[1].innerHTML.toLowerCase();
     const pokemon = this.pokemonInfo.find( (pokemon: any) => pokemon.name == target);
 
     var hoverColor = null;
@@ -83,12 +83,19 @@ export class PokemonListComponent implements OnInit, OnDestroy {
     }
   }
 
-  select(event: any) {
-    const target = event.target.children[1].children[0].innerHTML.toLowerCase();
-    const pokemon = this.pokemonInfo.find( (pokemon: any) => pokemon.name == target);
+  setSelectedPokemonList(pokemon: any) {
 
-    console.log(pokemon);
+  }
+
+  getSprite(pokemon: any): any {
+    return pokemon.sprites.versions['generation-v']['black-white'].animated.front_default;
+  }
+
+  select(event: any) {
+    const target = event.target.children[1].innerHTML.toLowerCase();
+    const pokemon = this.pokemonInfo.find( (pokemon: any) => pokemon.name == target);
     this.selectedPokemon.emit(pokemon);
+    
   }
   
     

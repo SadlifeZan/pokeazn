@@ -1,9 +1,14 @@
 nb-sidebar {
     min-width: 350px;
+    background-image: linear-gradient(rgb(236, 10, 10), rgb(185, 75, 75));
 }
 
 :host ::ng-deep div.main-container.main-container-fixed {
     & > * {
         width: 350px;
     }
+}
+
+.header {
+    background-image: linear-gradient(rgb(185, 75, 75), rgb(236, 10, 10));
 }

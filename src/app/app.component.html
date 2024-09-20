@@ -1,6 +1,8 @@
 
 <nb-layout>
-  <nb-layout-header fixed>PokeAzn</nb-layout-header>
+  <nb-layout-header class="header" fixed>
+    <img #pokemon src="/assets/pokeazntitle2.png">
+  </nb-layout-header>
 
   <nb-sidebar>
     <app-pokemon-list (selectedPokemon)="selectPokemon($event)"></app-pokemon-list>
