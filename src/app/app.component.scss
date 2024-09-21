@@ -12,3 +12,15 @@ nb-sidebar {
 .header {
     background-image: linear-gradient(rgb(185, 75, 75), rgb(236, 10, 10));
 }
+
+.sidebarContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.searchBar {
+    width: 100%;
+    height: 35px;
+    margin-bottom: 15px;
+}

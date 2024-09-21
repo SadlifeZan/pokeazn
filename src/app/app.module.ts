@@ -3,7 +3,7 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NbThemeModule, NbSidebarModule, NbLayoutModule, NbButtonModule, NbListModule, NbCardModule } from '@nebular/theme';
+import { NbThemeModule, NbSidebarModule, NbLayoutModule, NbButtonModule, NbListModule, NbCardModule, NbInputModule } from '@nebular/theme';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { PokemonViewComponent } from './pokemon-view/pokemon-view.component';
@@ -23,6 +23,7 @@ import { PokemonViewComponent } from './pokemon-view/pokemon-view.component';
     NbButtonModule,
     NbListModule,
     NbCardModule,
+    NbInputModule,
   ],
   providers: [
     provideClientHydration(),

@@ -10,6 +10,7 @@ import { Observable, Subscription } from 'rxjs';
 export class PokemonListComponent implements OnInit, OnDestroy {
 
   @Output() selectedPokemon: EventEmitter<any> = new EventEmitter();
+  selectedPokemonBorder: any;
   pokemons: any = [];
   pokemonInfo: any = [];
   hover = false;       
@@ -83,8 +84,16 @@ export class PokemonListComponent implements OnInit, OnDestroy {
     }
   }
 
-  setSelectedPokemonList(pokemon: any) {
+  setSelectedPokemonList(event: any) {
+    event.target.style.setProperty("border", "5px solid white");
 
+    if (this.selectedPokemonBorder !== null) {
+      this.selectedPokemonBorder?.target.style.setProperty("border", "none")
+      this.selectedPokemonBorder = event;
+    } else {
+      this.selectedPokemonBorder = event;
+      console.log(this.selectedPokemonBorder);
+    }
   }
 
   getSprite(pokemon: any): any {
@@ -95,7 +104,7 @@ export class PokemonListComponent implements OnInit, OnDestroy {
     const target = event.target.children[1].innerHTML.toLowerCase();
     const pokemon = this.pokemonInfo.find( (pokemon: any) => pokemon.name == target);
     this.selectedPokemon.emit(pokemon);
-    
+    this.setSelectedPokemonList(event);
   }
   
     
